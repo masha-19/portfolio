@@ -1,5 +1,8 @@
 # Portafolio v2 — Marianela Verdinelli
 
+**Sitio en vivo:** [https://masha-19.github.io/portfolio/](https://masha-19.github.io/portfolio/)  
+**Repo:** [github.com/masha-19/portfolio](https://github.com/masha-19/portfolio)
+
 Versión **mejorada** del portafolio, construida con skills de diseño:
 
 - **Impeccable** (sistema, anti-slop, polish/audit)
