@@ -1,4 +1,4 @@
-/* Portafolio v2 — island nav, gallery filters, lightbox, reveals */
+/* Portafolio v2 — nav, galería (fotos + reels 9:16), lightbox */
 
 (function () {
   const nav = document.getElementById("site-nav");
@@ -56,19 +56,45 @@
   const lightboxContent = document.getElementById("lightbox-content");
   const lightboxCaption = document.getElementById("lightbox-caption");
 
-  function isYouTubeOrVimeo(src) {
-    return /youtube\.com|youtu\.be|vimeo\.com/i.test(src);
+  function isLocalVideo(src) {
+    return /\.(mp4|webm|ogg|mov)(\?|$)/i.test(src);
   }
 
-  function toEmbedUrl(src) {
-    if (/youtube\.com\/embed\//i.test(src)) return src;
-    const ytWatch = src.match(/[?&]v=([^&]+)/);
-    if (ytWatch) return "https://www.youtube.com/embed/" + ytWatch[1];
-    const ytShort = src.match(/youtu\.be\/([^?&]+)/);
-    if (ytShort) return "https://www.youtube.com/embed/" + ytShort[1];
-    const vimeo = src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-    if (vimeo) return "https://player.vimeo.com/video/" + vimeo[1];
-    return src;
+  function isTikTok(src) {
+    return /tiktok\.com/i.test(src);
+  }
+
+  function isInstagramReel(src) {
+    return /instagram\.com\/(reel|p|tv)\//i.test(src);
+  }
+
+  function isYouTubeShort(src) {
+    return /youtube\.com\/shorts\//i.test(src) || /youtu\.be\//i.test(src);
+  }
+
+  /** TikTok embed URL from watch or share link */
+  function toTikTokEmbed(src) {
+    const idMatch = src.match(/\/video\/(\d+)/);
+    if (idMatch) {
+      return "https://www.tiktok.com/embed/v2/" + idMatch[1];
+    }
+    // Already embed?
+    if (/tiktok\.com\/embed/i.test(src)) return src;
+    return null;
+  }
+
+  function toYouTubeShortEmbed(src) {
+    const shorts = src.match(/youtube\.com\/shorts\/([^?&/]+)/);
+    if (shorts) return "https://www.youtube.com/embed/" + shorts[1];
+    const short = src.match(/youtu\.be\/([^?&]+)/);
+    if (short) return "https://www.youtube.com/embed/" + short[1];
+    return null;
+  }
+
+  function makeVerticalShell() {
+    const shell = document.createElement("div");
+    shell.className = "lightbox-reel";
+    return shell;
   }
 
   function openLightbox(item) {
@@ -76,26 +102,98 @@
 
     const type = item.getAttribute("data-type") || "foto";
     const src = (item.getAttribute("data-src") || "").trim();
+    const poster = (item.getAttribute("data-poster") || "").trim();
     const caption = item.getAttribute("data-caption") || "";
-    const imgInThumb = item.querySelector("img");
+    const imgInThumb = item.querySelector(".reel-screen img, img");
 
     lightboxContent.innerHTML = "";
+    lightboxContent.classList.toggle("is-reel", type === "reel" || type === "video");
 
-    if (type === "video" && src && isYouTubeOrVimeo(src)) {
-      const iframe = document.createElement("iframe");
-      iframe.src = toEmbedUrl(src);
-      iframe.title = caption || "Vídeo";
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      lightboxContent.appendChild(iframe);
-    } else if (type === "video" && src && /\.(mp4|webm|ogg)(\?|$)/i.test(src)) {
-      const video = document.createElement("video");
-      video.src = src;
-      video.controls = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      lightboxContent.appendChild(video);
+    if (type === "reel" || type === "video") {
+      if (src && isLocalVideo(src)) {
+        const shell = makeVerticalShell();
+        const video = document.createElement("video");
+        video.src = src;
+        if (poster) video.poster = poster;
+        else if (imgInThumb && imgInThumb.src) video.poster = imgInThumb.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.setAttribute("playsinline", "");
+        video.loop = true;
+        shell.appendChild(video);
+        lightboxContent.appendChild(shell);
+      } else if (src && isTikTok(src)) {
+        const embed = toTikTokEmbed(src);
+        if (embed) {
+          const shell = makeVerticalShell();
+          const iframe = document.createElement("iframe");
+          iframe.src = embed;
+          iframe.title = caption || "TikTok";
+          iframe.allow = "encrypted-media; fullscreen; autoplay";
+          iframe.allowFullscreen = true;
+          iframe.loading = "lazy";
+          shell.appendChild(iframe);
+          lightboxContent.appendChild(shell);
+        } else {
+          showReelPlaceholder(src, "No pude leer el ID de TikTok. Usá un link tipo tiktok.com/@usuario/video/123…");
+        }
+      } else if (src && isInstagramReel(src)) {
+        // Instagram no permite embed confiable sin su script; abrimos el reel y mostramos poster
+        const shell = makeVerticalShell();
+        shell.classList.add("lightbox-reel-link");
+        if (imgInThumb || poster) {
+          const img = document.createElement("img");
+          img.src = poster || imgInThumb.src;
+          img.alt = caption || "Portada del reel";
+          shell.appendChild(img);
+        }
+        const link = document.createElement("a");
+        link.href = src;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "reel-open-btn";
+        link.textContent = "Ver en Instagram";
+        shell.appendChild(link);
+        lightboxContent.appendChild(shell);
+      } else if (src && isYouTubeShort(src)) {
+        // Shorts siguen siendo verticales; no landscape “normal”
+        const embed = toYouTubeShortEmbed(src);
+        if (embed) {
+          const shell = makeVerticalShell();
+          const iframe = document.createElement("iframe");
+          iframe.src = embed;
+          iframe.title = caption || "Short vertical";
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          shell.appendChild(iframe);
+          lightboxContent.appendChild(shell);
+        }
+      } else if (src) {
+        // Link genérico: botón para abrir + poster
+        const shell = makeVerticalShell();
+        shell.classList.add("lightbox-reel-link");
+        if (imgInThumb || poster) {
+          const img = document.createElement("img");
+          img.src = poster || (imgInThumb && imgInThumb.src);
+          img.alt = caption || "Portada";
+          shell.appendChild(img);
+        }
+        const link = document.createElement("a");
+        link.href = src;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "reel-open-btn";
+        link.textContent = "Abrir vídeo";
+        shell.appendChild(link);
+        lightboxContent.appendChild(shell);
+      } else {
+        showReelPlaceholder(
+          "",
+          "Guardá un <strong>.mp4</strong> en <em>assets/galeria/</em> o pegá un link de <strong>TikTok</strong> / <strong>Instagram Reel</strong> en <em>data-src</em>."
+        );
+      }
     } else if (src || imgInThumb) {
       const img = document.createElement("img");
       img.src = src || imgInThumb.src;
@@ -105,9 +203,7 @@
       const msg = document.createElement("div");
       msg.className = "lightbox-placeholder-msg";
       msg.innerHTML =
-        type === "video"
-          ? "<strong>Todavía no hay vídeo</strong>Guardá un archivo en assets/galeria/ o pegá un link de YouTube en data-src."
-          : "<strong>Todavía no hay imagen</strong>Guardá la foto en assets/galeria/ y actualizá data-src.";
+        "<strong>Todavía no hay imagen</strong>Guardá la foto en <em>assets/galeria/</em> y actualizá data-src.";
       lightboxContent.appendChild(msg);
     }
 
@@ -116,10 +212,22 @@
     document.body.classList.add("lightbox-open");
   }
 
+  function showReelPlaceholder(src, htmlDetail) {
+    const msg = document.createElement("div");
+    msg.className = "lightbox-placeholder-msg lightbox-placeholder-reel";
+    msg.innerHTML = "<strong>Reel vacío</strong>" + htmlDetail;
+    lightboxContent.appendChild(msg);
+  }
+
   function closeLightbox() {
     if (!lightbox || !lightboxContent) return;
     lightbox.hidden = true;
     document.body.classList.remove("lightbox-open");
+    lightboxContent.classList.remove("is-reel");
+    // Stop any playing video
+    lightboxContent.querySelectorAll("video").forEach(function (v) {
+      v.pause();
+    });
     lightboxContent.innerHTML = "";
   }
 

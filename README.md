@@ -62,9 +62,20 @@ Buscá `mailto:`, `wa.me`, Instagram y LinkedIn cerca del final de `index.html`.
 
 ### Galería
 
-1. Archivos en `assets/galeria/`
-2. En cada botón `.g-item`, actualizá `data-src`, `data-type` (`foto` o `video`) y el `<img>`.
-3. Para YouTube: `data-src="https://www.youtube.com/embed/ID"` y `data-type="video"`.
+1. **Fotos:** `data-type="foto"` + imagen en `assets/galeria/`.
+2. **Reels / TikTok (vertical 9:16):** `data-type="reel"` en un botón `.g-reel`.
+
+Opciones de `data-src` para reels (recomendado en este orden):
+
+| Tipo | Ejemplo |
+|------|---------|
+| Archivo local **.mp4** (mejor) | `assets/galeria/mi-reel.mp4` |
+| TikTok | `https://www.tiktok.com/@usuario/video/1234567890` |
+| Instagram Reel | `https://www.instagram.com/reel/CODIGO/` (abre en Instagram) |
+
+Portada opcional: `data-poster="assets/galeria/portada.jpg"`.
+
+**No uses** videos horizontales de YouTube “normales” en esta sección: está pensada para formato vertical de Reels/TikTok.
 
 ### Proyectos
 

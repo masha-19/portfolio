@@ -1,4 +1,13 @@
 Poné acá tus fotos y vídeos reales de la galería.
-Ejemplos: post-01.jpg, reel-01.mp4, stories-02.png
 
-Las imágenes actuales son de muestra (sintéticas) para que la página se vea llena.
+FOTOS: post-01.jpg, stories-02.png, etc.
+
+REELS / TIKTOK (vertical 9:16):
+  - Mejor opción: exportá el reel como .mp4 y guardalo acá (ej. reel-01.mp4)
+  - En index.html, en el botón .g-reel:
+      data-type="reel"
+      data-src="assets/galeria/reel-01.mp4"
+      data-poster="assets/galeria/portada.jpg"  (opcional)
+  - O un link de TikTok / Instagram Reel en data-src
+
+Las imágenes actuales son de muestra (sintéticas).

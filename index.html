@@ -149,8 +149,8 @@
             <div class="bezel-inner video-slot">
               <img src="assets/galeria/feed-print.jpg" alt="Referencia visual de feed (ejemplo sintético)" loading="lazy" width="900" height="600" />
               <div class="video-slot-overlay">
-                <span>Zona de vídeo embebido</span>
-                <small>Pegá YouTube / Vimeo cuando tengas el reel</small>
+                <span>Reel vertical (9:16)</span>
+                <small>Archivo .mp4 o link de TikTok / Instagram</small>
               </div>
             </div>
           </div>
@@ -171,8 +171,8 @@
             <div class="bezel-inner video-slot">
               <img src="assets/galeria/reel-still.jpg" alt="Still de reel vertical (ejemplo sintético)" loading="lazy" width="720" height="1280" />
               <div class="video-slot-overlay">
-                <span>Zona de vídeo embebido</span>
-                <small>Ideal para serie de Reels</small>
+                <span>Serie de Reels</span>
+                <small>Formato vertical · .mp4 / TikTok</small>
               </div>
             </div>
           </div>
@@ -193,8 +193,8 @@
             <div class="bezel-inner video-slot">
               <img src="assets/galeria/flatlay.jpg" alt="Material gráfico de campaña (ejemplo sintético)" loading="lazy" width="800" height="800" />
               <div class="video-slot-overlay">
-                <span>Zona de vídeo embebido</span>
-                <small>Stories o cover de campaña</small>
+                <span>Stories / cover</span>
+                <small>Vertical u horizontal según pieza</small>
               </div>
             </div>
           </div>
@@ -212,17 +212,20 @@
       </div>
     </section>
 
-    <!-- Galería -->
+    <!-- Galería: fotos + reels verticales (Reels / TikTok), no YouTube horizontal -->
     <section class="section gallery" id="galeria" aria-labelledby="gallery-title">
       <div class="section-intro-block">
         <h2 id="gallery-title">Galería</h2>
-        <p>Material gráfico y stills. Filtrá por tipo y hacé clic para ver en grande. Archivos en <code>assets/galeria/</code>.</p>
+        <p>
+          Material gráfico y <strong>reels verticales</strong> (formato Reels / TikTok, 9:16).
+          Filtrá por tipo y hacé clic para ver en grande. Videos: archivo <code>.mp4</code> o link de TikTok / Instagram Reel.
+        </p>
       </div>
 
       <div class="gallery-filters" role="group" aria-label="Filtrar galería">
         <button type="button" class="filter-btn is-active" data-filter="all">Todo</button>
         <button type="button" class="filter-btn" data-filter="foto">Fotos</button>
-        <button type="button" class="filter-btn" data-filter="video">Vídeos</button>
+        <button type="button" class="filter-btn" data-filter="reel">Reels</button>
       </div>
 
       <div class="gallery-bento" id="gallery-grid">
@@ -231,12 +234,31 @@
           <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Feed</span></span>
         </button>
 
-        <button type="button" class="g-item g-tall" data-type="video" data-src="assets/galeria/reel-still.jpg" data-caption="Still de reel · reemplazá por vídeo embebido" aria-label="Ver vídeo: Still de reel">
-          <img src="assets/galeria/reel-still.jpg" alt="Still de reel de ejemplo" loading="lazy" />
-          <span class="g-play" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
-          </span>
-          <span class="g-meta"><span class="g-badge g-badge-v">Vídeo</span><span class="g-cap">Reel</span></span>
+        <!--
+          REEL vertical: data-type="reel"
+          Opciones de data-src:
+          1) Archivo local (recomendado): assets/galeria/mi-reel.mp4
+          2) TikTok: https://www.tiktok.com/@usuario/video/ID
+          3) Instagram Reel: https://www.instagram.com/reel/CODIGO/
+        -->
+        <button
+          type="button"
+          class="g-item g-reel"
+          data-type="reel"
+          data-src=""
+          data-poster="assets/galeria/reel-still.jpg"
+          data-caption="Reel de ejemplo · pegá tu .mp4 o link de TikTok / Instagram"
+          aria-label="Ver reel de ejemplo"
+        >
+          <div class="reel-phone">
+            <div class="reel-screen">
+              <img src="assets/galeria/reel-still.jpg" alt="Portada de reel de ejemplo" loading="lazy" />
+              <span class="g-play" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
+              </span>
+            </div>
+          </div>
+          <span class="g-meta"><span class="g-badge g-badge-v">Reel</span><span class="g-cap">9:16</span></span>
         </button>
 
         <button type="button" class="g-item" data-type="foto" data-src="assets/galeria/flatlay.jpg" data-caption="Flat lay creativo · material de ejemplo" aria-label="Ver foto: Flat lay">
@@ -249,19 +271,50 @@
           <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Color</span></span>
         </button>
 
-        <button type="button" class="g-item g-wide" data-type="video" data-src="" data-caption="Espacio para tu siguiente reel" aria-label="Espacio de vídeo vacío">
-          <div class="g-empty">
-            <span class="g-play" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
-            </span>
-            <p>Tu vídeo aquí</p>
+        <button
+          type="button"
+          class="g-item g-reel"
+          data-type="reel"
+          data-src=""
+          data-poster=""
+          data-caption="Slot libre para tu reel o TikTok"
+          aria-label="Espacio de reel vacío"
+        >
+          <div class="reel-phone">
+            <div class="reel-screen g-empty">
+              <span class="g-play" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
+              </span>
+              <p>Tu reel aquí</p>
+              <small>.mp4 · TikTok · IG</small>
+            </div>
           </div>
-          <span class="g-meta"><span class="g-badge g-badge-v">Vídeo</span><span class="g-cap">Slot libre</span></span>
+          <span class="g-meta"><span class="g-badge g-badge-v">Reel</span><span class="g-cap">Libre</span></span>
         </button>
 
         <button type="button" class="g-item" data-type="foto" data-src="assets/hero-studio.jpg" data-caption="Mesa de edición · ambiente" aria-label="Ver foto: Mesa de edición">
           <img src="assets/hero-studio.jpg" alt="Mesa de edición" loading="lazy" />
           <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Estudio</span></span>
+        </button>
+
+        <button
+          type="button"
+          class="g-item g-reel"
+          data-type="reel"
+          data-src=""
+          data-poster="assets/galeria/flatlay.jpg"
+          data-caption="Segundo reel · formato vertical"
+          aria-label="Ver segundo reel de ejemplo"
+        >
+          <div class="reel-phone">
+            <div class="reel-screen">
+              <img src="assets/galeria/flatlay.jpg" alt="Portada reel 2" loading="lazy" />
+              <span class="g-play" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
+              </span>
+            </div>
+          </div>
+          <span class="g-meta"><span class="g-badge g-badge-v">TikTok</span><span class="g-cap">9:16</span></span>
         </button>
       </div>
       <p class="gallery-empty" id="gallery-empty" hidden>No hay piezas en este filtro todavía.</p>
