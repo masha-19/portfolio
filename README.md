@@ -3,7 +3,16 @@
 **Sitio en vivo:** [https://masha-19.github.io/portfolio/](https://masha-19.github.io/portfolio/)  
 **Repo:** [github.com/masha-19/portfolio](https://github.com/masha-19/portfolio)
 
-Versión **mejorada** del portafolio, construida con skills de diseño:
+Portafolio orientado a **community + reels + UGC**, con estructura inspirada en portfolios profesionales de editores de vídeo, community managers y creadores UGC:
+
+- Showreel destacado (estándar de editores)
+- Logos de confianza arriba
+- Casos **Reto → Qué hice → Resultado**
+- Métricas y formatos UGC
+- Galería vertical 9:16
+- Proceso de trabajo en 4 pasos
+
+Versión **mejorada** con skills de diseño:
 
 - **Impeccable** (sistema, anti-slop, polish/audit)
 - **Taste Skill** (`design-taste-frontend`)
