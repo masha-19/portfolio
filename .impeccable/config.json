@@ -1,0 +1,18 @@
+{
+  "detector": {
+    "ignoreRules": [
+      "cream-palette"
+    ],
+    "ignoreFiles": [
+      "**/.skills-src/**"
+    ],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "beige paper brand",
+        "createdAt": "2026-07-31T19:19:53.748Z",
+        "reason": "Brand commitment pinned by owner: marrones + rojos + beige (PRODUCT.md)"
+      }
+    ]
+  }
+}

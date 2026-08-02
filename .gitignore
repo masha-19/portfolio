@@ -1,0 +1,20 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Skills / tooling local (no hace falta en el sitio público)
+.skills-src/
+.grok/
+node_modules/
+
+# Impeccable: efímero; se mantiene config compartida
+.impeccable/*.png
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
+.impeccable/live/
+.impeccable/detect-report.json
+
+# Editor
+*.swp
+*~

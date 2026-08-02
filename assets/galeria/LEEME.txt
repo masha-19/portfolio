@@ -1,0 +1,4 @@
+Poné acá tus fotos y vídeos reales de la galería.
+Ejemplos: post-01.jpg, reel-01.mp4, stories-02.png
+
+Las imágenes actuales son de muestra (sintéticas) para que la página se vea llena.

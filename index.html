@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marianela Verdinelli — Creadora de contenido digital. Community, edición de vídeo y diseño para redes. Trabajo remoto." />
+  <title>Marianela Verdinelli · Creadora de contenido digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    THESIS: Portfolio as a warm editing-studio desk — work and material lead; refuse equal SaaS feature-card scaffolding.
+    OWN-WORLD: Paper cream + espresso fields, rust as committed accent, Bricolage Grotesque display + Figtree body, island nav, double-bezel media frames, asymmetric bento.
+    STORY: Know who · see services · proof (cases + gallery) · trust · contact.
+    FIRST VIEWPORT: Editorial split — left name/role/lead/CTAs, right large studio still in double-bezel; primary action "Ver trabajos".
+    FORM: Editorial luxury + soft structuralism · seed unavailable (no Node for concept-seed.mjs) · direction committed from PRODUCT.md + pinned palette.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav-wrap">
+    <div class="nav-island">
+      <a href="#inicio" class="nav-brand" aria-label="Inicio">
+        <span class="nav-mark">MV</span>
+        <span class="nav-name">Marianela</span>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto" class="nav-cta">Hablemos</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Hero: editorial split -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Marianela<br />Verdinelli</h1>
+        <p class="hero-role">Creadora de contenido digital</p>
+        <p class="hero-lead">
+          Community, edición de vídeo y diseño para redes.
+          Trabajo remoto con marcas y equipos que quieren verse claros y cercanos.
+        </p>
+        <div class="hero-actions">
+          <a href="#trabajos" class="btn btn-primary">
+            <span>Ver trabajos</span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="bezel">
+          <div class="bezel-inner">
+            <img
+              src="assets/hero-studio.jpg"
+              alt="Escritorio de edición creativa con luz cálida (imagen de ambiente, sintético)"
+              width="1200"
+              height="675"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+        <p class="media-note">Ambiente de estudio · material de ejemplo</p>
+      </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section class="section about" id="sobre-mi" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-photo bezel">
+          <div class="bezel-inner photo-frame">
+            <div class="photo-placeholder" role="img" aria-label="Espacio para foto de perfil">
+              <span>MV</span>
+              <small>Tu foto aquí</small>
+            </div>
+            <!-- <img src="assets/foto-perfil.jpg" alt="Marianela Verdinelli" width="480" height="600" /> -->
+          </div>
+        </div>
+        <div class="about-copy">
+          <h2 id="about-title">Contenido que se siente humano</h2>
+          <p>
+            Soy Marianela. Combino community management, edición de reels y diseño de piezas
+            para que el feed y la conversación vayan de la mano, sin enredos técnicos.
+          </p>
+          <p>
+            Trabajo online con marcas y equipos que buscan presencia constante,
+            con personalidad propia y mensajes que se entienden al primer scroll.
+          </p>
+          <ul class="pill-row" aria-label="Áreas">
+            <li>Community</li>
+            <li>Vídeo</li>
+            <li>Diseño para redes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios: bento asimétrico -->
+    <section class="section services" id="servicios" aria-labelledby="services-title">
+      <div class="section-intro-block">
+        <h2 id="services-title">En qué puedo ayudarte</h2>
+        <p>Tres frentes que se complementan. Eliges uno o los tres según el proyecto.</p>
+      </div>
+      <div class="bento">
+        <article class="bento-cell bento-lg">
+          <div class="bento-face tone-paper">
+            <h3>Community management</h3>
+            <p>Publicar con sentido, cuidar la comunidad y mantener el tono de la marca en el día a día.</p>
+          </div>
+        </article>
+        <article class="bento-cell bento-md">
+          <div class="bento-face tone-espresso">
+            <h3>Edición de vídeo</h3>
+            <p>Reels y TikToks con ritmo, subtítulos y formato vertical listo para publicar.</p>
+          </div>
+        </article>
+        <article class="bento-cell bento-md">
+          <div class="bento-face tone-rust">
+            <h3>Diseño para redes</h3>
+            <p>Posts, stories y piezas que se ven de la misma familia en el feed.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Trabajos -->
+    <section class="section work" id="trabajos" aria-labelledby="work-title">
+      <div class="section-intro-block">
+        <h2 id="work-title">Proyectos seleccionados</h2>
+        <p>Estructura lista para tus casos reales. Los títulos de ejemplo se reemplazan con lo tuyo.</p>
+      </div>
+
+      <div class="work-stack">
+        <article class="case">
+          <div class="case-media bezel">
+            <div class="bezel-inner video-slot">
+              <img src="assets/galeria/feed-print.jpg" alt="Referencia visual de feed (ejemplo sintético)" loading="lazy" width="900" height="600" />
+              <div class="video-slot-overlay">
+                <span>Zona de vídeo embebido</span>
+                <small>Pegá YouTube / Vimeo cuando tengas el reel</small>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-kind">Community · Diseño</p>
+            <h3>Marca lifestyle en Instagram</h3>
+            <p>Calendario de publicaciones, piezas de feed y stories, y conversación con la comunidad para un perfil coherente y cercano.</p>
+            <ul class="tag-row">
+              <li>Instagram</li>
+              <li>Feed</li>
+              <li>Stories</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case case-flip">
+          <div class="case-media bezel">
+            <div class="bezel-inner video-slot">
+              <img src="assets/galeria/reel-still.jpg" alt="Still de reel vertical (ejemplo sintético)" loading="lazy" width="720" height="1280" />
+              <div class="video-slot-overlay">
+                <span>Zona de vídeo embebido</span>
+                <small>Ideal para serie de Reels</small>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-kind">Edición de vídeo</p>
+            <h3>Serie de Reels para producto</h3>
+            <p>Cortes dinámicos, textos en pantalla y ritmo pensado para el scroll. Formato vertical listo para publicar.</p>
+            <ul class="tag-row">
+              <li>Reels</li>
+              <li>TikTok</li>
+              <li>Subtítulos</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-media bezel">
+            <div class="bezel-inner video-slot">
+              <img src="assets/galeria/flatlay.jpg" alt="Material gráfico de campaña (ejemplo sintético)" loading="lazy" width="800" height="800" />
+              <div class="video-slot-overlay">
+                <span>Zona de vídeo embebido</span>
+                <small>Stories o cover de campaña</small>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-kind">Diseño · Vídeo corto</p>
+            <h3>Campaña visual para stories</h3>
+            <p>Línea gráfica unificada y mensajes claros para una campaña en stories, con llamados a la acción simples.</p>
+            <ul class="tag-row">
+              <li>Stories</li>
+              <li>Diseño</li>
+              <li>Campaña</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section gallery" id="galeria" aria-labelledby="gallery-title">
+      <div class="section-intro-block">
+        <h2 id="gallery-title">Galería</h2>
+        <p>Material gráfico y stills. Filtrá por tipo y hacé clic para ver en grande. Archivos en <code>assets/galeria/</code>.</p>
+      </div>
+
+      <div class="gallery-filters" role="group" aria-label="Filtrar galería">
+        <button type="button" class="filter-btn is-active" data-filter="all">Todo</button>
+        <button type="button" class="filter-btn" data-filter="foto">Fotos</button>
+        <button type="button" class="filter-btn" data-filter="video">Vídeos</button>
+      </div>
+
+      <div class="gallery-bento" id="gallery-grid">
+        <button type="button" class="g-item g-wide" data-type="foto" data-src="assets/galeria/feed-print.jpg" data-caption="Feed impreso · material de ejemplo" aria-label="Ver foto: Feed impreso">
+          <img src="assets/galeria/feed-print.jpg" alt="Feed impreso de ejemplo" loading="lazy" />
+          <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Feed</span></span>
+        </button>
+
+        <button type="button" class="g-item g-tall" data-type="video" data-src="assets/galeria/reel-still.jpg" data-caption="Still de reel · reemplazá por vídeo embebido" aria-label="Ver vídeo: Still de reel">
+          <img src="assets/galeria/reel-still.jpg" alt="Still de reel de ejemplo" loading="lazy" />
+          <span class="g-play" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
+          </span>
+          <span class="g-meta"><span class="g-badge g-badge-v">Vídeo</span><span class="g-cap">Reel</span></span>
+        </button>
+
+        <button type="button" class="g-item" data-type="foto" data-src="assets/galeria/flatlay.jpg" data-caption="Flat lay creativo · material de ejemplo" aria-label="Ver foto: Flat lay">
+          <img src="assets/galeria/flatlay.jpg" alt="Flat lay de creación de contenido" loading="lazy" />
+          <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Flat lay</span></span>
+        </button>
+
+        <button type="button" class="g-item" data-type="foto" data-src="assets/galeria/color-study.jpg" data-caption="Estudio de color · material de ejemplo" aria-label="Ver foto: Estudio de color">
+          <img src="assets/galeria/color-study.jpg" alt="Estudio de color abstracto" loading="lazy" />
+          <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Color</span></span>
+        </button>
+
+        <button type="button" class="g-item g-wide" data-type="video" data-src="" data-caption="Espacio para tu siguiente reel" aria-label="Espacio de vídeo vacío">
+          <div class="g-empty">
+            <span class="g-play" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M6 4.5v9l8-4.5-8-4.5z"/></svg>
+            </span>
+            <p>Tu vídeo aquí</p>
+          </div>
+          <span class="g-meta"><span class="g-badge g-badge-v">Vídeo</span><span class="g-cap">Slot libre</span></span>
+        </button>
+
+        <button type="button" class="g-item" data-type="foto" data-src="assets/hero-studio.jpg" data-caption="Mesa de edición · ambiente" aria-label="Ver foto: Mesa de edición">
+          <img src="assets/hero-studio.jpg" alt="Mesa de edición" loading="lazy" />
+          <span class="g-meta"><span class="g-badge">Foto</span><span class="g-cap">Estudio</span></span>
+        </button>
+      </div>
+      <p class="gallery-empty" id="gallery-empty" hidden>No hay piezas en este filtro todavía.</p>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+      <div class="lightbox-backdrop" data-lightbox-close tabindex="-1"></div>
+      <div class="lightbox-panel">
+        <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lightbox-content" id="lightbox-content"></div>
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- Marcas -->
+    <section class="section brands" id="confianza" aria-labelledby="brands-title">
+      <h2 id="brands-title" class="brands-title">Marcas y proyectos</h2>
+      <p class="brands-sub">Espacios para logos o nombres cuando tengas permiso de mostrarlos.</p>
+      <ul class="brand-row" aria-label="Marcas placeholder">
+        <li><span class="brand-mark">A</span> Atelier Norte</li>
+        <li><span class="brand-mark">L</span> Lumen Studio</li>
+        <li><span class="brand-mark">C</span> Casa Roja</li>
+        <li><span class="brand-mark">P</span> Punto Cero</li>
+        <li><span class="brand-mark">M</span> Mesa &amp; Co.</li>
+      </ul>
+      <p class="synth-note">Nombres de ejemplo (sintéticos). Reemplazá por marcas reales.</p>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section quotes" aria-labelledby="quotes-title">
+      <div class="section-intro-block">
+        <h2 id="quotes-title">Lo que dicen</h2>
+        <p>Frases de ejemplo. Cambialas por testimonios reales con permiso.</p>
+      </div>
+      <div class="quote-rail">
+        <blockquote class="quote-card">
+          <p>“Ordenada, cercana y con buen ojo. El feed se veía unificado y la comunidad respondía mejor.”</p>
+          <footer>
+            <cite>Valentina Ríos</cite>
+            <span>Cliente · marca lifestyle</span>
+          </footer>
+        </blockquote>
+        <blockquote class="quote-card">
+          <p>“Los reels llegaron a tiempo, con ritmo y listos para publicar. Entendió el tono a la primera.”</p>
+          <footer>
+            <cite>Diego Ferrer</cite>
+            <span>Marketing · retail</span>
+          </footer>
+        </blockquote>
+        <blockquote class="quote-card">
+          <p>“Clara y creativa. Ideal si buscás alguien que una diseño, vídeo y comunidad sin complicaciones.”</p>
+          <footer>
+            <cite>Camila Ortiz</cite>
+            <span>Fundadora · proyecto local</span>
+          </footer>
+        </blockquote>
+      </div>
+      <p class="synth-note">Testimonios sintéticos de ejemplo.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="contact-inner">
+          <h2 id="contact-title">¿Hablamos?</h2>
+          <p>
+            Abierta a proyectos remotos y a oportunidades en equipos de contenido o redes.
+            Elegí el canal que te quede más cómodo.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:tu@email.com">
+              <span>Email</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn btn-secondary" href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn-ghost" href="https://instagram.com/tuusuario" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <p class="contact-hint">Placeholders: actualizá email, WhatsApp y redes en el HTML.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Marianela Verdinelli · Creadora de contenido digital</p>
+    <a href="#inicio">Volver arriba</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
