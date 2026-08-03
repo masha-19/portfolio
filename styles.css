@@ -399,21 +399,107 @@ code {
   margin-top: 1.85rem;
 }
 
-.hero-platforms {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1.5rem;
-}
-
-.hero-platforms li {
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid rgba(36, 24, 20, 0.12);
-  font-size: 0.8rem;
+.hero-subroles {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--brown-mute);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+}
+
+.hero-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+.hero-roles li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--espresso-soft);
+}
+
+.role-n {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--espresso);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Services stacked by priority (video first) */
+.services-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.svc-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.15rem;
+  align-items: start;
+  padding: clamp(1.35rem, 3vw, 1.75rem);
+  border-radius: var(--radius-outer);
+  background: var(--paper-elevated);
+  border: 1px solid rgba(36, 24, 20, 0.07);
+  box-shadow: var(--shadow-bezel);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.svc-row:hover {
+  transform: translateY(-2px);
+}
+
+.svc-featured {
+  background: linear-gradient(155deg, var(--espresso-soft), var(--espresso));
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+.svc-featured h3 {
+  color: #fff;
+}
+
+.svc-featured .svc-num {
+  color: var(--rust-soft);
+}
+
+.svc-featured p:last-child {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.svc-row .svc-num {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--rust);
+  line-height: 1;
+  min-width: 2rem;
+}
+
+.svc-row-body h3 {
+  margin-bottom: 0.4rem;
+}
+
+.svc-row-body p {
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--brown);
+  max-width: 48ch;
 }
 
 /* Trust bar (logos high — SMM portfolio pattern) */
@@ -1758,10 +1844,6 @@ body.lightbox-open {
     justify-content: center;
   }
 
-  .hero-platforms {
-    justify-content: flex-start;
-  }
-
   .showreel-grid {
     grid-template-columns: 1fr;
   }
@@ -1772,10 +1854,6 @@ body.lightbox-open {
 
   .services-grid {
     grid-template-columns: 1fr;
-  }
-
-  .metrics-row {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .process-steps {
