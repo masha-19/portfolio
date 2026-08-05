@@ -404,11 +404,11 @@ code {
 
 .hero-lead {
   margin-top: 1.15rem;
-  max-width: 32ch;
+  max-width: 38ch;
   color: var(--ink);
   font-weight: 400;
   font-size: 1.125rem;
-  line-height: 1.55;
+  line-height: 1.58;
 }
 
 .hero-actions {
@@ -850,8 +850,8 @@ code {
 .section-intro-block p {
   color: var(--ink);
   font-weight: 400;
-  max-width: 38ch; /* medida escaneable */
-  line-height: 1.55;
+  max-width: 44ch;
+  line-height: 1.58;
   font-size: 1.05rem;
 }
 
@@ -921,8 +921,8 @@ code {
   color: var(--ink);
   font-weight: 400;
   margin-bottom: 1.1rem;
-  max-width: 40ch;
-  line-height: 1.55;
+  max-width: 44ch;
+  line-height: 1.58;
   font-size: 1.05rem;
 }
 
