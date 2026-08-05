@@ -11,9 +11,9 @@
   --sand: #d4c3ae;
   --espresso: #241814;
   --espresso-soft: #3a2b24;
-  --ink: #2c1f1a;
-  --brown: #5c4338;
-  --brown-mute: #5a453c; /* darkened for WCAG AA on paper/paper-deep */
+  --ink: #1f1612;
+  --brown: #3d2c24; /* body text: más contraste sobre paper */
+  --brown-mute: #4a372e; /* secondary text: legible, no se mezcla con el fondo */
   --rust: #a13f30; /* slightly deeper for white text contrast */
   --rust-deep: #7f3226;
   --rust-soft: #9e4f42; /* darker soft for light text on bento */
@@ -56,6 +56,20 @@ body {
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
   /* overflow-x left visible so fixed/absolute UI is not clipped (impeccable: clipped-overflow-container) */
+}
+
+/* Texto de cuerpo más notorio (menos “gris sobre beige”) */
+p,
+.section-intro-block p,
+.hero-lead,
+.about-copy p,
+.svc-row-body p,
+.case-rar dd,
+.process-steps p,
+.quote-card > p,
+.contact-inner > p {
+  color: var(--brown);
+  font-weight: 400;
 }
 
 img {
@@ -386,10 +400,10 @@ code {
 .hero-lead {
   margin-top: 1.15rem;
   max-width: 28rem;
-  color: var(--brown);
-  font-weight: 300;
-  font-size: 1.08rem;
-  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.65;
 }
 
 .hero-actions {
@@ -402,8 +416,8 @@ code {
 .hero-subroles {
   margin-top: 0.35rem;
   font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--brown-mute);
+  font-weight: 600;
+  color: var(--brown);
   letter-spacing: 0.01em;
 }
 
@@ -496,10 +510,11 @@ code {
 }
 
 .svc-row-body p {
-  font-weight: 300;
-  font-size: 1rem;
-  color: var(--brown);
+  font-weight: 400;
+  font-size: 1.02rem;
+  color: var(--ink);
   max-width: 48ch;
+  line-height: 1.6;
 }
 
 /* Trust bar (logos high — SMM portfolio pattern) */
@@ -512,10 +527,10 @@ code {
 
 .trust-label {
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--brown-mute);
+  color: var(--brown);
   margin-bottom: 1.1rem;
 }
 
@@ -681,10 +696,10 @@ code {
 }
 
 .case-rar dd {
-  font-weight: 300;
-  color: var(--brown);
-  font-size: 0.98rem;
-  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .case-rar em {
@@ -783,9 +798,10 @@ code {
 }
 
 .process-steps p {
-  font-weight: 300;
-  font-size: 0.92rem;
-  color: var(--brown);
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.55;
 }
 
 .hero-media {
@@ -827,9 +843,10 @@ code {
 }
 
 .section-intro-block p {
-  color: var(--brown-mute);
-  font-weight: 300;
-  max-width: 40ch;
+  color: var(--ink);
+  font-weight: 400;
+  max-width: 42ch;
+  line-height: 1.6;
 }
 
 /* ——— About ——— */
@@ -861,6 +878,14 @@ code {
 .photo-frame {
   aspect-ratio: 4 / 5;
   background: linear-gradient(155deg, var(--paper-deep), var(--sand));
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .photo-placeholder {
@@ -887,10 +912,11 @@ code {
 }
 
 .about-copy p {
-  color: var(--brown);
-  font-weight: 300;
+  color: var(--ink);
+  font-weight: 400;
   margin-bottom: 1rem;
   max-width: 42ch;
+  line-height: 1.65;
 }
 
 .pill-row {
@@ -1556,10 +1582,10 @@ body.lightbox-open {
   padding: 0.65rem 1.15rem 0.65rem 0.75rem;
   border-radius: 999px;
   background: var(--paper-elevated);
-  border: 1px solid rgba(36, 24, 20, 0.08);
-  color: var(--brown);
-  font-size: 0.9rem;
-  font-weight: 500;
+  border: 1px solid rgba(36, 24, 20, 0.12);
+  color: var(--espresso);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .brand-mark {
@@ -1644,9 +1670,9 @@ body.lightbox-open {
 }
 
 .quote-card footer span {
-  font-size: 0.85rem;
-  color: var(--brown-mute);
-  font-weight: 300;
+  font-size: 0.88rem;
+  color: var(--brown);
+  font-weight: 500;
 }
 
 /* ——— Contact ——— */
@@ -1677,8 +1703,8 @@ body.lightbox-open {
 .contact-inner > p {
   margin: 0.75rem auto 1.75rem;
   max-width: 34ch;
-  color: rgba(255, 255, 255, 0.88);
-  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
 }
 
 .contact-actions {
