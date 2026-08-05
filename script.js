@@ -251,7 +251,7 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion && "IntersectionObserver" in window) {
     const targets = document.querySelectorAll(
-      ".section-intro-block, .about-grid, .services-stack, .svc-row, .showreel-grid, .case, .gallery-filters, .gallery-bento, .brand-row, .process-steps, .quote-card, .contact-panel, .trust-bar"
+      ".section-intro-block, .about-grid, .services-stack, .svc-row, .case, .gallery-filters, .gallery-bento, .brand-row, .process-steps, .quote-card, .contact-panel, .trust-bar"
     );
     targets.forEach(function (el) {
       el.classList.add("reveal");

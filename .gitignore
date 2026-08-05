@@ -18,3 +18,14 @@ node_modules/
 # Editor
 *.swp
 *~
+
+# Videos demasiado pesados para GitHub (límite 100 MB por archivo)
+# Se ven en tu Mac; para internet hay que comprimirlos primero
+assets/galeria/mashareel1.mp4
+assets/galeria/GRWMMAKEUP.mov
+assets/galeria/lunadelotoreel.mov
+
+# Carpetas fuente de slides (el sitio usa los collages en collages/)
+assets/galeria/LUNA DE LOTO FLYER*/
+assets/galeria/presentación*/
+assets/galeria/Llegan miles*/

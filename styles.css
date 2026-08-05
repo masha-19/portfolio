@@ -523,119 +523,6 @@ code {
   margin-bottom: 0.75rem;
 }
 
-/* Showreel */
-.showreel {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  background: var(--espresso);
-  padding: var(--section-y) max(1.25rem, calc((100% - var(--max)) / 2 + 1rem));
-  box-sizing: border-box;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.showreel h2 {
-  color: #fff;
-}
-
-.showreel-grid {
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(1.75rem, 4vw, 3rem);
-  align-items: center;
-}
-
-.showreel-copy p {
-  font-weight: 300;
-  max-width: 36ch;
-  margin-bottom: 1.1rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.showreel-copy code {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.showreel-bullets {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.showreel-bullets li {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.72);
-  padding-left: 1.1rem;
-  position: relative;
-}
-
-.showreel-bullets li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: var(--rust);
-}
-
-.showreel-player {
-  max-width: 280px;
-  margin-inline: auto;
-  width: 100%;
-}
-
-.showreel-frame {
-  position: relative;
-  aspect-ratio: 9 / 16;
-  max-height: 480px;
-}
-
-.showreel-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.75;
-}
-
-.showreel-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 1.25rem;
-  background: rgba(36, 24, 20, 0.55);
-  text-align: center;
-  color: #fff;
-}
-
-.showreel-play {
-  display: grid;
-  place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 50%;
-  background: var(--rust);
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-  padding-left: 3px;
-}
-
-.showreel-hint {
-  font-size: 0.8rem;
-  opacity: 0.75;
-  font-weight: 300;
-}
-
 /* Services 2×2 grid */
 .services-grid {
   display: grid;
@@ -804,6 +691,54 @@ code {
   font-style: normal;
   opacity: 0.7;
   font-size: 0.9em;
+}
+
+/* Collages de carruseles Instagram: grilla legible, sin velo oscuro */
+.case-collage-layout {
+  grid-template-columns: 1.35fr 0.85fr;
+  align-items: center;
+}
+
+.case-collage-layout.case-flip {
+  direction: rtl;
+}
+
+.case-collage-layout.case-flip > * {
+  direction: ltr;
+}
+
+.case-collage {
+  position: relative;
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden;
+  background: #f7f2ec;
+}
+
+.case-collage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  background: #f7f2ec;
+}
+
+.case-collage-badge {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(36, 24, 20, 0.88);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
 .video-slot-vertical {
@@ -1685,10 +1620,10 @@ body.lightbox-open {
 
 .quote-card > p {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
   font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
   color: var(--espresso);
   flex: 1;
 }
@@ -1844,14 +1779,6 @@ body.lightbox-open {
     justify-content: center;
   }
 
-  .showreel-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .showreel-player {
-    max-width: 240px;
-  }
-
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -1869,7 +1796,9 @@ body.lightbox-open {
   }
 
   .case,
-  .case-flip {
+  .case-flip,
+  .case-collage-layout,
+  .case-collage-layout.case-flip {
     grid-template-columns: 1fr;
     direction: ltr;
   }
@@ -1877,6 +1806,15 @@ body.lightbox-open {
   .case-flip .video-slot {
     aspect-ratio: 16 / 11;
     max-height: none;
+  }
+
+  .case-collage {
+    max-width: 100%;
+  }
+
+  .case-collage img {
+    width: 100%;
+    height: auto;
   }
 
   .video-slot-vertical {
