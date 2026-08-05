@@ -50,15 +50,15 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1.0625rem; /* ~17px: legible en pantalla */
+  line-height: 1.6;
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
-  /* overflow-x left visible so fixed/absolute UI is not clipped (impeccable: clipped-overflow-container) */
+  text-rendering: optimizeLegibility;
 }
 
-/* Texto de cuerpo más notorio (menos “gris sobre beige”) */
+/* Cuerpo: contraste + medida cómoda de lectura (~45–75ch) */
 p,
 .section-intro-block p,
 .hero-lead,
@@ -66,8 +66,7 @@ p,
 .svc-row-body p,
 .case-rar dd,
 .process-steps p,
-.quote-card > p,
-.contact-inner > p {
+.quote-card > p {
   color: var(--brown);
   font-weight: 400;
 }
@@ -97,27 +96,33 @@ ul {
   list-style: none;
 }
 
+/* Display: títulos compactos y con carácter; cuerpo no compite */
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
   color: var(--espresso);
+  text-wrap: balance;
 }
 
 h1 {
   font-size: clamp(2.85rem, 7.5vw, 4.75rem);
   font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(1.85rem, 4vw, 2.65rem);
-  margin-bottom: 0.65rem;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.2;
   letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 code {
@@ -399,11 +404,11 @@ code {
 
 .hero-lead {
   margin-top: 1.15rem;
-  max-width: 28rem;
+  max-width: 32ch;
   color: var(--ink);
   font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.55;
 }
 
 .hero-actions {
@@ -838,15 +843,16 @@ code {
 }
 
 .section-intro-block {
-  max-width: 34rem;
+  max-width: 36rem;
   margin-bottom: clamp(2rem, 4vw, 2.75rem);
 }
 
 .section-intro-block p {
   color: var(--ink);
   font-weight: 400;
-  max-width: 42ch;
-  line-height: 1.6;
+  max-width: 38ch; /* medida escaneable */
+  line-height: 1.55;
+  font-size: 1.05rem;
 }
 
 /* ——— About ——— */
@@ -914,9 +920,14 @@ code {
 .about-copy p {
   color: var(--ink);
   font-weight: 400;
-  margin-bottom: 1rem;
-  max-width: 42ch;
-  line-height: 1.65;
+  margin-bottom: 1.1rem;
+  max-width: 40ch;
+  line-height: 1.55;
+  font-size: 1.05rem;
+}
+
+.about-copy p + p {
+  margin-top: 0; /* ritmo: espacio ya en margin-bottom */
 }
 
 .pill-row {
