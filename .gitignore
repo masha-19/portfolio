@@ -19,8 +19,8 @@ node_modules/
 *.swp
 *~
 
-# Videos demasiado pesados para GitHub (límite 100 MB por archivo)
-# Se ven en tu Mac; para internet hay que comprimirlos primero
+# Originales sin comprimir (muy pesados; el sitio usa assets/galeria/web/)
+assets/galeria/_originales/
 assets/galeria/mashareel1.mp4
 assets/galeria/GRWMMAKEUP.mov
 assets/galeria/lunadelotoreel.mov
