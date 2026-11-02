@@ -1172,7 +1172,8 @@ code {
 
 .gallery-bento {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* minmax(0, 1fr): sin esto, el 9:16 de cada reel ensancha la columna y la página desborda en celular */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: 110px;
   gap: 0.85rem;
   align-items: stretch;
@@ -1279,9 +1280,13 @@ code {
 }
 
 .g-reel .g-meta {
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.95rem;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  /* degradé oscuro para que el texto se lea sobre portadas claras */
+  padding: 1.6rem 0.6rem 0.6rem;
+  border-radius: 0 0 1.05rem 1.05rem;
+  background: linear-gradient(to bottom, rgba(20, 12, 10, 0), rgba(20, 12, 10, 0.72));
 }
 
 .g-item img {
@@ -1324,10 +1329,44 @@ code {
 }
 
 .g-cap {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 0.78rem;
   color: #fff;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
   font-weight: 500;
+}
+
+.g-badge {
+  flex-shrink: 0;
+}
+
+/* Marca arriba, qué hice abajo (más chico) */
+.g-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  line-height: 1.25;
+}
+
+.g-brand,
+.g-what {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.g-brand {
+  font-weight: 600;
+}
+
+.g-what {
+  white-space: normal; /* en celular baja a dos renglones en vez de cortarse */
+  font-size: 0.72rem;
+  opacity: 0.92;
 }
 
 .g-play {
@@ -1860,7 +1899,7 @@ body.lightbox-open {
   }
 
   .gallery-bento {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 110px;
   }
 
@@ -1920,6 +1959,11 @@ body.lightbox-open {
     grid-row: span 3;
   }
 
+  /* filas más bajas: con dos columnas angostas, cada reel queda cerca de 9:16 */
+  .gallery-bento {
+    grid-auto-rows: 84px;
+  }
+
   .reel-screen {
     min-height: 240px;
   }
@@ -1927,6 +1971,23 @@ body.lightbox-open {
   .site-footer {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Celulares chicos: columnas angostas */
+@media (max-width: 480px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* la sección ya dice "Reels": sin la etiqueta, el nombre de la marca entra completo */
+  .g-reel .g-badge {
+    display: none;
+  }
+
+  .g-reel .g-cap {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
